@@ -1,0 +1,258 @@
+* {     
+    margin: 0;
+    padding: 0;
+    border: none;
+
+    box-sizing: border-box;
+    
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Roboto', sans-serif;
+}
+/* variáveis de cores e rem */
+
+html {
+    height: 100vh;
+    
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    max-width: 100%;
+
+}
+
+.logo h1 {
+    font-weight: 700;
+    margin: 25px auto 0 50px;
+    
+}
+
+a {
+    color: #f1f1f1;
+}
+header {
+    background:#3b2275;
+    width: 100vw;
+}
+
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background:#3b2275;
+}
+
+
+.nav-icons {
+    display: flex;
+    padding: 5px;
+    margin-right: 50px;
+}
+
+.search-btn, .login-btn {
+    background-color: rgba(255, 255, 255, .8);    
+    width: 120px;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 10px;
+    transition: filter .2s;
+    cursor: pointer;
+}
+
+
+.search-btn:hover, .login-btn:hover {
+    filter: brightness(0.8);   
+}
+
+.search-btn span, .login-btn span {
+    color: #32264D;
+    font-weight: 600;   
+}
+
+.search-btn img, .login-btn img {
+    float: right;
+}
+
+.sidebar_btn{
+    display: none;
+}
+
+
+#menu {
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    border-radius: 15px;
+    background-color: rgba(41, 36, 36, 0.8);
+    width: 40vw;
+    visibility: visible;
+    min-width: 40vw;
+}
+
+#menu ul {
+    display: inline-flex;
+    color: #32264D;
+}
+
+#menu ul li {
+    margin: 10px;
+    transition: filter .2s;
+    cursor: pointer;
+}
+
+#menu ul li:hover {
+    filter: brightness(1.5);
+    text-decoration: underline;
+}
+
+/* .font-icons{
+    font-size: 10px;
+}
+
+.main-footer {
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+    background-color: rgb(66, 66, 66);
+    
+} */
+
+
+.container {
+    width: 90vw;
+    min-height: 80vh;
+    max-width: 1000px;
+	display: grid;
+
+    grid-template-rows: 50% 50%;
+    grid-template-columns: 75% 25%;
+}
+
+.leftcolumn {   
+    display: grid;
+    grid-row-start: 1;
+    grid-row-end: 4;
+    
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+  
+  /* Right column */
+  .rightcolumn {
+    display: grid;
+    grid-row-start: 1;
+    grid-row-end: 4;
+    
+    grid-column-start: 2;
+    grid-column-end: 4;
+
+  }
+  
+  /* Fake image */
+  .fakeimg {
+    background-color: #aaa;
+    width: 100%;
+    padding: 20px;
+  }
+  
+  /* Add a card effect for articles */
+  .card {
+    background-color: white;
+    padding: 20px;
+  }
+  /* Footer */
+footer {
+    padding: 20px;
+    text-align: center;
+    background: #32264D;
+    width: 100vw;
+    position: fixed;
+    bottom: 0;
+}
+
+.footer small {
+    color: #f1f1f1;
+}
+
+@media(max-width: 1066px) {
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100vw;
+    }
+    
+    #menu {
+        position: absolute;
+        width: 100vw;
+        border-radius: unset;
+        justify-content: left;
+        visibility: hidden;
+        
+    }
+    #menu ul {
+        display: block;
+        float: left;
+    }
+    
+    .sidebar_btn{
+        display: flex;
+        margin-left: 15px;
+        background-color: rgba(255, 255, 255, 0.0);
+        cursor: pointer;
+    }
+    
+    .sidebar_btn label{
+        display: inline-flex;;
+    }
+    .sidebar_btn span{
+        margin: 3px 0 0 3px;
+        color: #f1f1f1
+    }
+
+    .logo h1{
+        margin: auto;
+    }
+    .nav-icons{
+        margin-right: 15px;
+    }
+    .nav-icons span {
+        display: none;
+
+    }
+    .search-btn, .login-btn {
+        background-color: rgba(255, 255, 255, .8);    
+        width: 35px;
+        margin: 5px;
+        padding: 5px;
+        
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+
+        padding: auto;
+        margin: auto;
+
+        min-height: 88vh;
+    }
+
+
+    .leftcolumn, .rightcolumn {   
+        width: 100%;
+		padding: 0;
+    }
+    
+    footer {
+        position: relative;
+    }
+}
