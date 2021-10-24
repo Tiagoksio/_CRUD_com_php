@@ -17,97 +17,45 @@
 <body>
     <?php  
         require_once './parts/header.php';
+        require_once './class/Messages.php';
+        $mensagens = new Messages("db_crud_php", "localhost", "crud_php", "123456");
+        $dados = $mensagens->getMessages();
     ?> 
     <!--tabela de seleção de usuários-->
     <div class="container">
+    
         <table>
             <thead>
                 <tr>
                     <th>Nome</th>
                     <th>Sobrenome</th>
+                    <th>Telefone</th>
                     <th>E-mail</th>
-                    <th>Telefone</th> 
+                    <th>Assunto</th> 
                     <th>Ações</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Marcelo</td>
-                    <td>Farias</td>
-                    <td>mljinformatica@gmail.com</td>
-                    <td>(61)98659-8515</td>
-                    <td>                    
-                        <img src="icons\005-show.png" alt="mostrar"> |
-                        <img src="icons\001-editing.png" alt="editar"></i> |
-                        <img src="icons\006-delete.png" alt="deletar"></i>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Marcelo</td>
-                    <td>Farias</td>
-                    <td>mljinformatica@gmail.com</td>
-                    <td>(61)98659-8515</td>
-                    <td>                    
-                        <img src="icons\005-show.png" alt="mostrar"> |
-                        <img src="icons\001-editing.png" alt="editar"> |
-                        <img src="icons\006-delete.png" alt="deletar">
-                    </td>
-                </tr>
-                <tr>
-                    <td>Marcelo</td>
-                    <td>Farias</td>
-                    <td>mljinformatica@gmail.com</td>
-                    <td>(61)98659-8515</td>
-                    <td>                    
-                        <img src="icons\005-show.png" alt="mostrar"> |
-                        <img src="icons\001-editing.png" alt="editar"> |
-                        <img src="icons\006-delete.png" alt="deletar">
-                    </td>
-                </tr>
-                <tr>
-                    <td>Marcelo</td>
-                    <td>Farias</td>
-                    <td>mljinformatica@gmail.com</td>
-                    <td>(61)98659-8515</td>
-                    <td>                    
-                        <img src="icons\005-show.png" alt="mostrar"> |
-                        <img src="icons\001-editing.png" alt="editar"> |
-                        <img src="icons\006-delete.png" alt="deletar">
-                    </td>
-                </tr>
-                <tr>
-                    <td>Marcelo</td>
-                    <td>Farias</td>
-                    <td>mljinformatica@gmail.com</td>
-                    <td>(61)98659-8515</td>
-                    <td>                    
-                        <img src="icons\005-show.png" alt="mostrar"> |
-                        <img src="icons\001-editing.png" alt="editar"> |
-                        <img src="icons\006-delete.png" alt="deletar">
-                    </td>
-                </tr>
-                <tr>
-                    <td>Marcelo</td>
-                    <td>Farias</td>
-                    <td>mljinformatica@gmail.com</td>
-                    <td>(61)98659-8515</td>
-                    <td>                    
-                        <img src="icons\005-show.png" alt="mostrar"> |
-                        <img src="icons\001-editing.png" alt="editar"> |
-                        <img src="icons\006-delete.png" alt="deletar">
-                    </td>
-                </tr>
-                <tr>
-                    <td>Marcelo</td>
-                    <td>Farias</td>
-                    <td>mljinformatica@gmail.com</td>
-                    <td>(61)98659-8515</td>
-                    <td>                    
-                        <img src="icons\005-show.png" alt="mostrar"> |
-                        <img src="icons\001-editing.png" alt="editar"> |
-                        <img src="icons\006-delete.png" alt="deletar">
-                    </td>
-                </tr>
+                <?php
+                if (count($dados) > 0) {
+                    for ($i=0; $i < count($dados); $i++) { 
+                        echo "<tr>";
+                        foreach ($dados[$i] as $key => $value) {
+                            if ($key != "id" and $key != "cidade" and $key != "msg") {
+                                echo "<td>" . $value . "</td>";
+                            }
+                        }
+                        ?>
+                        <td>                    
+                            <img src="icons\005-show.png" alt="mostrar"> |
+                            <img src="icons\001-editing.png" alt="editar"></i> |
+                            <img src="icons\006-delete.png" alt="deletar"></i>
+                        </td>
+                        <?php
+                        echo "</tr>";
+                    }
+                }                
+                ?>
             </tbody>
         </table>
     </div>
