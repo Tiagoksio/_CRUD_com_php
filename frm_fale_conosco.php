@@ -50,6 +50,8 @@
         $msg = test_input($_POST["msg"]);
     }
 
+    
+
     function test_input($data) {
         $data = trim($data);
         $data = stripslashes($data);
@@ -66,32 +68,32 @@
             <fieldset class="rementente">
                 <div class="field">
                     <label for="frm_first_name">Nome:</label>
-                    <input type="text" required id="frm_first_name" name="first_name" placeholder="Nome.." >
-                    <span>
-                        <?php echo $nomeErr; ?>
-                    </span>
+                    <input type="text" required id="frm_first_name" name="nome" placeholder="Nome.." >
                 </div>
+                <span>
+                    <?php echo $nomeErr; ?>
+                </span>
                 <div class="field">
                     <label for="frm_last_name">Sobrenome:</label>
-                    <input type="text" required id="frm_last_name" name="last_name" placeholder="Sobrenome.." >
-                    <span>
-                        <?php echo $sobreErr; ?>
-                    </span>
+                    <input type="text" required id="frm_last_name" name="sobrenome" placeholder="Sobrenome.." >
                 </div>
+                <span>
+                    <?php echo $sobreErr; ?>
+                </span>
                 <div class="field">
                     <label for="frm_email">E-mail:</label>
                     <input id='frm_email' type="email" required name="email"  placeholder="email@dominio.com.br">
-                    <span>
-                        <?php echo $emailErr; ?>
-                    </span>
                 </div>
+                <span>
+                    <?php echo $emailErr; ?>
+                </span>
                 <div class="field">
                     <label for="frm_tel">Telefone:</label>
                     <input id="frm_tel" type="tel" required name="fone" placeholder="(ddd)9 xxxx-xxxx">
-                    <span>
-                        <?php echo $foneErr; ?>
-                    </span>
                 </div>
+                <span>
+                    <?php echo $foneErr; ?>
+                </span>
                 <div class="field">    
                     <label for="frm_cidade">Cidade Satélite:</label>
                     <select id="frm_cidade" name="cidade">
@@ -113,11 +115,11 @@
             <fieldset class="frm_field_msg">
             <div class="field">
                 <label for="frm_assunto">Assunto:</label>
-                <input id="frm_assunto"type="text" required id="frm_first_name" name="first_name" placeholder="Nome.." >
-                <span>
-                    <?php echo $assuntoErr; ?>
-                </span>
+                <input id="frm_assunto"type="text" required id="frm_first_name" name="first_name" placeholder="Assunto" >
             </div>
+            <span>
+                <?php echo $assuntoErr; ?>
+            </span>
             <div class="field">
                 <label id="frm_msg">Mensagem:</label>
                 <textarea id="frm_msg" style="height:200px" name="msg" placeholder="Digite sua mensagem"></textarea>
