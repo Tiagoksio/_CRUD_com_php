@@ -1,0 +1,31 @@
+.container {
+    display: flex;
+    flex-direction: column;
+
+    margin: 20px auto 1px auto;
+
+}
+
+table {
+    border: solid 1px #3b2275;
+}
+
+thead {
+    background-color: #3b2275;
+    color: #f1f1f1;
+    width: 80px;
+    height: 50px;
+}
+
+td {
+    padding: 10px;
+}
+
+td img {
+    margin: 1px auto;
+    justify-content: center;
+}
+
+tr:nth-child(even) {
+    background-color: #d3c6f0;
+}

@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projeto - CRUD</title>     
     <!-- styles -->
-    <link rel="stylesheet" href="css/styles.css"> 
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/selection.css">
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,23 +21,94 @@
     <!--tabela de seleção de usuários-->
     <div class="container">
         <table>
-            <tr>
-                <th>Nome</th>
-                <th>Sobrenome</th>
-                <th>E-mail</th>
-                <th>Telefone</th> 
-                <th>Ações</th>
-            </tr>
-            <tr>
-                <td>Marcelo</td>
-                <td>Farias</td>
-                <td>mljinformatica@gmail.com</td>
-                <td>(61)98659-8515</td>
-                <td>                    
-                    <i class="fas fa-eye"></i> |
-                    <i class="fas fa-user-edit"></i> |
-                    <i class="fas fa-user-times"></i></td>
-            </tr>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Sobrenome</th>
+                    <th>E-mail</th>
+                    <th>Telefone</th> 
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Marcelo</td>
+                    <td>Farias</td>
+                    <td>mljinformatica@gmail.com</td>
+                    <td>(61)98659-8515</td>
+                    <td>                    
+                        <img src="icons\005-show.png" alt="mostrar"> |
+                        <img src="icons\001-editing.png" alt="editar"></i> |
+                        <img src="icons\006-delete.png" alt="deletar"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Marcelo</td>
+                    <td>Farias</td>
+                    <td>mljinformatica@gmail.com</td>
+                    <td>(61)98659-8515</td>
+                    <td>                    
+                        <img src="icons\005-show.png" alt="mostrar"> |
+                        <img src="icons\001-editing.png" alt="editar"> |
+                        <img src="icons\006-delete.png" alt="deletar">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Marcelo</td>
+                    <td>Farias</td>
+                    <td>mljinformatica@gmail.com</td>
+                    <td>(61)98659-8515</td>
+                    <td>                    
+                        <img src="icons\005-show.png" alt="mostrar"> |
+                        <img src="icons\001-editing.png" alt="editar"> |
+                        <img src="icons\006-delete.png" alt="deletar">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Marcelo</td>
+                    <td>Farias</td>
+                    <td>mljinformatica@gmail.com</td>
+                    <td>(61)98659-8515</td>
+                    <td>                    
+                        <img src="icons\005-show.png" alt="mostrar"> |
+                        <img src="icons\001-editing.png" alt="editar"> |
+                        <img src="icons\006-delete.png" alt="deletar">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Marcelo</td>
+                    <td>Farias</td>
+                    <td>mljinformatica@gmail.com</td>
+                    <td>(61)98659-8515</td>
+                    <td>                    
+                        <img src="icons\005-show.png" alt="mostrar"> |
+                        <img src="icons\001-editing.png" alt="editar"> |
+                        <img src="icons\006-delete.png" alt="deletar">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Marcelo</td>
+                    <td>Farias</td>
+                    <td>mljinformatica@gmail.com</td>
+                    <td>(61)98659-8515</td>
+                    <td>                    
+                        <img src="icons\005-show.png" alt="mostrar"> |
+                        <img src="icons\001-editing.png" alt="editar"> |
+                        <img src="icons\006-delete.png" alt="deletar">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Marcelo</td>
+                    <td>Farias</td>
+                    <td>mljinformatica@gmail.com</td>
+                    <td>(61)98659-8515</td>
+                    <td>                    
+                        <img src="icons\005-show.png" alt="mostrar"> |
+                        <img src="icons\001-editing.png" alt="editar"> |
+                        <img src="icons\006-delete.png" alt="deletar">
+                    </td>
+                </tr>
+            </tbody>
         </table>
     </div>
     
