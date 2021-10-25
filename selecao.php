@@ -19,6 +19,7 @@
         require_once './parts/header.php';
         require_once './class/Messages.php';
         $mensagens = new Messages("db_crud_php", "localhost", "crud_php", "123456");
+        $id_msg;
         $dados = $mensagens->getMessages();
     ?> 
     <!--tabela de seleção de usuários-->
@@ -46,10 +47,11 @@
                         }
                     }
                     ?>
-                    <td>                    
+                    <td>
+                                           
                         <img src="icons\005-show.png" alt="mostrar"> |
-                        <img src="icons\001-editing.png" alt="editar"></i> |
-                        <img src="icons\006-delete.png" alt="deletar"></i>
+                        <img src="icons\001-editing.png" alt="editar"> |
+                        <a href="./selecao.php?id=<?php echo $dados[$i]['id'];?>"><img src="icons\006-delete.png" alt="deletar"></a> 
                     </td>
                     <?php
                     echo "</tr>";
@@ -60,6 +62,21 @@
             }          
             ?>
     </div>
+
+    <?php 
+    function input_validation($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;    
+    }
+
+    if (isset($_GET['id'])) {
+        $id_msg = input_validation($_GET['id']);
+        $mensagens->deleteMessage($id_msg);
+    }
+    
+    ?>
     
     <!--área do rodapé (footer)-->
     <?php

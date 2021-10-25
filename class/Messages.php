@@ -37,5 +37,11 @@ class Messages {
         $cmd -> execute();
 
         return true;
-    }    
+    }
+
+    public function deleteMessage($id_msg) {
+        $cmd = $this -> pdo -> prepare("DELETE FROM tb_mensagens WHERE id = :id");
+        $cmd -> bindValue(":id", $id_msg);
+        $cmd -> execute();
+    }
 }
