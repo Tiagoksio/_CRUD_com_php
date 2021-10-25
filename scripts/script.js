@@ -22,3 +22,9 @@ function empty_field(index) {
     document.querySelector(".msg-erro").style.visibility = 'visible';
 };
 
+function registred_message() { 
+    let msg = document.querySelector('h2');
+    msg.innerText = "Sua Mensagem Foi Registrada!";
+    msg.style.color = 'rgba(42, 150, 33)';
+};
+
