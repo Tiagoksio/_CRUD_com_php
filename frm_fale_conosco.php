@@ -19,20 +19,13 @@
 </head>
 <body>
     <?php
-    require_once './parts/header.php';
+        require_once './parts/header.php';
+        require_once './class/Messages.php';
+        
+        $mensagem = new Messages('db_crud_php', 'localhost', 'crud_php', '123456');
+        
     ?>
-
-    <?php
-    $nome = $sobrenome = $email = $tel = $cidade = $msg = $assunto = "";  
-
-    function input_validation($data) {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
-    }
-    ?>
-    <!--estrutura do formulário-->
+    <!-- estrutura do formulário -->
     
     <div class="container">
         <form id="fale_conosco" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
@@ -92,50 +85,50 @@
         
     <?php
 
-    if ($_SERVER["REQUEST_METHOD"] === "POST") {
-            
-        if (empty($_POST["nome"])) {
-            echo "<script>empty_field(0)</script>";
-        } else {
-            $nome = input_validation($_POST["nome"]);
-        }
-
-        if (empty($_POST["sobrenome"])) {
-            echo "<script>empty_field(1)</script>";
-        } else {
-            $sobrenome = input_validation($_POST["sobrenome"]);
-        }
-
-        if (empty($_POST["email"])) {
-            echo "<script>empty_field(2)</script>";
-        } else {
-            $email = input_validation($_POST["email"]);
-        }
-
-        if (empty($_POST["tel"])) {
-            echo "<script>empty_field(3)</script>";
-        } else {
-            $tel = input_validation($_POST["tel"]);
-        }
-        if (empty($_POST["cidade"])) {
-            echo "<script>empty_field(4)</script>";
-        } else {
-            $cidade = input_validation($_POST["cidade"]);
-        }
-
-        if (empty($_POST["assunto"])) {
-            echo "<script>empty_field(5)</script>";
-        } else {
-            $assunto = input_validation($_POST["assunto"]);
-        }
-        if (empty($_POST["msg"])) {
-            echo "<script>empty_field(6)</script>";
-        } else {
-            $msg = input_validation($_POST["msg"]);
-        }
-        
+    // Validação do Formulário
+    function input_validation($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;    
     }
 
+    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+        $dados_form = [
+            $_POST["nome"], 
+            $_POST["sobrenome"], 
+            $_POST["email"], 
+            $_POST["tel"], 
+            $_POST["cidade"], 
+            $_POST["msg"], 
+            $_POST["assunto"]
+        ];
+
+        $campos_vazios = false;
+        
+        foreach ($dados_form as $k => $v) {
+            if (empty($v)) {
+                echo "<script>empty_field(". $k .")</script>";
+                $campos_vazios = true;
+            } else {
+                $v = input_validation($v);
+            }
+        }
+        if (!$campos_vazios) {
+            if ($mensagem->setMessage(
+                $dados_form[0],
+                $dados_form[1],
+                $dados_form[2],
+                $dados_form[3],
+                $dados_form[4],
+                $dados_form[5],
+                $dados_form[6]
+            )) {
+                echo "<script>registred_message()</script>";
+            }
+        }
+    }
+    
     
     # área do rodapé (footer) 
     require_once './parts/footer.php';
