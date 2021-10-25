@@ -14,7 +14,8 @@
 </head>
 <body>
     <?php
-    require_once './parts/header.php';
+    require_once './config.php';
+    require_once TEMPLATE_HEADER;
     ?>
     <div class="container">
         <div class="col-4 bg-info" style="margin-top: 100px; border-radius: 25px;">
@@ -42,7 +43,7 @@
         
     <!--área do rodapé (footer)-->
     <?php
-    require_once './parts/footer.php';
+    require_once TEMPLATE_FOOTER;
     ?>
     <!-- Jquery -->
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>  

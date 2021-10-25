@@ -13,8 +13,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <?php  
-        require_once './parts/header.php';
+    <?php
+        require_once './config.php';
+        require_once TEMPLATE_HEADER;
     ?>   
     
     <div class="container">
@@ -60,7 +61,7 @@
     
     <!--área do rodapé (footer)-->
     <?php
-    require_once './parts/footer.php';
+    require_once TEMPLATE_FOOTER;
     ?>
     <!-- Jquery -->
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>  

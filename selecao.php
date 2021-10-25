@@ -15,10 +15,11 @@
 
 </head>
 <body>
-    <?php  
-        require_once './parts/header.php';
-        require_once './class/Messages.php';
-        $mensagens = new Messages("db_crud_php", "localhost", "crud_php", "123456");
+    <?php 
+        require_once 'config.php';
+        require_once TEMPLATE_HEADER;
+        require_once DB_API;
+        $mensagens = new Messages(DB_NAME, DB_HOST, DB_USER, DB_PASSWORD);
         $id_msg;
         $dados = $mensagens->getMessages();
     ?> 
@@ -80,7 +81,7 @@
     
     <!--área do rodapé (footer)-->
     <?php
-    require_once './parts/footer.php';
+    require_once TEMPLATE_FOOTER;
     ?>
     <!-- Jquery -->
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>  

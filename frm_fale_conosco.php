@@ -19,10 +19,11 @@
 </head>
 <body>
     <?php
-        require_once './parts/header.php';
-        require_once './class/Messages.php';
+        require_once './config.php';
+        require_once TEMPLATE_HEADER;
+        require_once DB_API;
 
-        $mensagem = new Messages("db_crud_php", "localhost", "crud_php", "123456");
+        $mensagem = new Messages(DB_NAME, DB_HOST, DB_USER, DB_PASSWORD);
         
     ?>
     <!-- estrutura do formulário -->
@@ -138,7 +139,7 @@
     }
     
     # área do rodapé (footer) 
-    require_once './parts/footer.php';
+    require_once TEMPLATE_FOOTER;
     ?>
     
 </body>
