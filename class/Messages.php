@@ -16,7 +16,7 @@ class Messages {
     //SELECT
     public function getMessages () {
         $res = array(); //Retornar o Array vazio caso não encontre mensagens;
-        $cmd = $this -> pdo -> query("SELECT * FROM tb_mensagens ORDER BY nome DESC");
+        $cmd = $this -> pdo -> query("SELECT * FROM tb_mensagens ORDER BY id DESC");
         $res = $cmd->fetchAll(PDO::FETCH_ASSOC);
         return $res;
     }
@@ -24,12 +24,12 @@ class Messages {
     //INSERT
     public function setMessage ($nome, $sobrenome, $telefone, $email, $cidade, $assunto, $msg ) {
 
-        $cmd = $this -> pdo -> prepare("INSERT INTO tb_mensagens (nome, sobrenome, telefone, email, cidade, assunto, msg) VALUES (:nome, :sobrenome, :telefone, :email, :cidade, :assunto, :msg)");
+        $cmd = $this -> pdo -> prepare("INSERT INTO tb_mensagens (nome, sobrenome, email, telefone, cidade, assunto, msg) VALUES (:nome, :sobrenome, :email, :telefone, :cidade, :assunto, :msg)");
 
         $cmd -> bindValue(':nome', $nome);
         $cmd -> bindValue(':sobrenome', $sobrenome);
-        $cmd -> bindValue(':telefone', $telefone);
         $cmd -> bindValue(':email', $email);
+        $cmd -> bindValue(':telefone', $telefone);
         $cmd -> bindValue(':cidade', $cidade);
         $cmd -> bindValue(':assunto', $assunto);
         $cmd -> bindValue(':msg', $msg);
@@ -37,4 +37,5 @@ class Messages {
 
         return true;
     }
+    
 }
