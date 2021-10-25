@@ -48,7 +48,7 @@
                 </div>
                 <div class="field">
                     <label for="frm_tel">Telefone:</label>
-                    <input id="frm_tel" type="tel" required name="tel" placeholder="(ddd)9 xxxx-xxxx" maxlength="11">
+                    <input id="frm_tel" type="tel" required name="tel" placeholder="(ddd)9 xxxx-xxxx" minlength="11" maxlength="11">
                 </div>
                 <div class="field">    
                     <label for="frm_cidade">Cidade Satélite:</label>
