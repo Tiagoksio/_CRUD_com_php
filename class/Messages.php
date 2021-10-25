@@ -6,6 +6,7 @@ class Messages {
     public function __construct($dbname, $host, $user, $password) {
         try {
             $this->pdo = new PDO("mysql:dbname=".$dbname.";host:host=".$host, $user, $password );
+            $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
             echo "Ocorreu um erro com o banco de dados: ".$e->getMessage();
         } catch (Exception $e) {
@@ -22,7 +23,7 @@ class Messages {
     }
 
     //INSERT
-    public function setMessage ($nome, $sobrenome, $telefone, $email, $cidade, $assunto, $msg ) {
+    public function setMessage ($nome, $sobrenome, $email, $telefone, $cidade, $assunto, $msg ) {
 
         $cmd = $this -> pdo -> prepare("INSERT INTO tb_mensagens (nome, sobrenome, email, telefone, cidade, assunto, msg) VALUES (:nome, :sobrenome, :email, :telefone, :cidade, :assunto, :msg)");
 
@@ -36,6 +37,5 @@ class Messages {
         $cmd -> execute();
 
         return true;
-    }
-    
+    }    
 }

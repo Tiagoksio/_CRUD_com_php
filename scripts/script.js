@@ -22,9 +22,15 @@ function empty_field(index) {
     document.querySelector(".msg-erro").style.visibility = 'visible';
 };
 
-function registred_message() { 
-    let msg = document.querySelector('h2');
-    msg.innerText = "Sua Mensagem Foi Registrada!";
-    msg.style.color = 'rgba(42, 150, 33)';
+function registred_message(bool) { 
+    let error_msg = document.querySelector('h2');
+    if (bool) {
+        error_msg.innerText = "Sua Mensagem Foi Registrada!";
+        error_msg.style.color = 'rgb(42, 150, 33)';
+    } else {
+        error_msg.innerText = "Não Foi Possível Registrar Sua Mensagem!";
+        error_msg.color = 'rgb(222, 0, 0)';
+    }
+    
 };
 

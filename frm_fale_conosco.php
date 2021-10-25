@@ -21,14 +21,14 @@
     <?php
         require_once './parts/header.php';
         require_once './class/Messages.php';
-        
-        $mensagem = new Messages('db_crud_php', 'localhost', 'crud_php', '123456');
+
+        $mensagem = new Messages("db_crud_php", "localhost", "crud_php", "123456");
         
     ?>
     <!-- estrutura do formulário -->
     
     <div class="container">
-        <form id="fale_conosco" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+        <form id="fale_conosco" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "POST">
             <div>
                 <h2>Fale Conosco</h2>
                 <span class="msg-erro"><strong>Preencha Todos os Campos!</strong></span>
@@ -36,7 +36,7 @@
             <fieldset class="rementente">
                 <div class="field">
                     <label for="frm_first_name">Nome:</label>
-                    <input type="text"  id="frm_first_name" name="nome" placeholder="Nome.." >
+                    <input type="text" required id="frm_first_name" name="nome" placeholder="Nome.." >
                 </div>
                 <div class="field">
                     <label for="frm_last_name">Sobrenome:</label>
@@ -48,7 +48,7 @@
                 </div>
                 <div class="field">
                     <label for="frm_tel">Telefone:</label>
-                    <input id="frm_tel" type="tel" required name="tel" placeholder="(ddd)9 xxxx-xxxx">
+                    <input id="frm_tel" type="tel" required name="tel" placeholder="(ddd)9 xxxx-xxxx" maxlength="11">
                 </div>
                 <div class="field">    
                     <label for="frm_cidade">Cidade Satélite:</label>
@@ -64,6 +64,7 @@
                         <option value="Santa Maria">Santa Maria</option>
                         <option value="Brazlândia">Brazlândia</option>
                         <option value="Recanto das Emas">Recanto das Emas</option>
+                        <option value="Planaltina">Planaltina</option>
                     </select>
                 </div>
             </fieldset>
@@ -99,12 +100,14 @@
             $_POST["sobrenome"], 
             $_POST["email"], 
             $_POST["tel"], 
-            $_POST["cidade"], 
-            $_POST["msg"], 
-            $_POST["assunto"]
+            $_POST["cidade"],
+            $_POST["assunto"], 
+            $_POST["msg"]
         ];
 
+
         $campos_vazios = false;
+        
         
         foreach ($dados_form as $k => $v) {
             if (empty($v)) {
@@ -114,21 +117,25 @@
                 $v = input_validation($v);
             }
         }
+
         if (!$campos_vazios) {
-            if ($mensagem->setMessage(
-                $dados_form[0],
-                $dados_form[1],
-                $dados_form[2],
-                $dados_form[3],
-                $dados_form[4],
-                $dados_form[5],
-                $dados_form[6]
-            )) {
-                echo "<script>registred_message()</script>";
+            if (
+                $mensagem->setMessage(
+                    $dados_form[0],
+                    $dados_form[1],
+                    $dados_form[2],
+                    $dados_form[3],
+                    $dados_form[4],
+                    $dados_form[5],
+                    $dados_form[6]
+                )
+            ) {
+                echo "<script>registred_message(true)</script>";
+            } else {
+                echo "<script>registred_message(false)</script>";
             }
         }
     }
-    
     
     # área do rodapé (footer) 
     require_once './parts/footer.php';
