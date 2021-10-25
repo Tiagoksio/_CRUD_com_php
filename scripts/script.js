@@ -15,3 +15,10 @@ $(function(){
         };
     });
 });
+
+
+function empty_field(index) { 
+    document.querySelectorAll('label')[index].style.color = "red";
+    document.querySelector(".msg-erro").style.visibility = 'visible';
+};
+

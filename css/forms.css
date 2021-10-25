@@ -6,7 +6,11 @@
 
 }
 .container h2 {
-    margin-bottom: 20px;
+    margin: 5px;
+}
+
+.msg-erro {
+    visibility: hidden;
 }
 
 form {
