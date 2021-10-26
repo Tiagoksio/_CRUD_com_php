@@ -9,7 +9,7 @@ $dados = $mensagens->getMessages();
 // Passar os dados para o escopo local da função ao executar
 function listMessages($dados)
 {
-    if (count( $dados) > 0) {
+    if (count($dados) > 0) {
         for ($i=0; $i < count($dados); $i++) { 
             echo "<tr>";
             foreach ($dados[$i] as $key => $value) {

@@ -6,7 +6,7 @@ if( !defined("ABSPATH") )
 
 // Caminho no server para o sistema
 if( !defined("BASEURL") )
-    define('BASEURL', "_CRUD_com_php/") ;
+    define('BASEURL', ABSPATH. "_CRUD_com_php/") ;
 
     
 // Constantes para o banco de dados

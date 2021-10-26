@@ -7,7 +7,9 @@
     <title>Projeto - CRUD</title>     
     <!-- styles -->
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/forms.css">  
+    <link rel="stylesheet" href="css/forms.css">
+    <!-- favicon -->
+    <link rel="shortcut icon" href="/eye-solid.svg" type="image/x-icon">
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
