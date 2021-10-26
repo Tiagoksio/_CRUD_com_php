@@ -14,6 +14,8 @@ $(function(){
             menu_lateral.css( "visibility", 'hidden');
         };
     });
+
+    
 });
 
 
@@ -21,12 +23,12 @@ $(function(){
 const botao_menu = document.querySelector('.sidebar_btn')
 const menu = document.querySelector('#menu')
 
-botao_menu.addEventListener('click', active_menu)
+botao_menu.addEventListener('click', activate_menu)
 window.addEventListener('resize', function () {
     (window.VisualViewport.width > 1066) ? menu.style.visibility = 'visible' : menu.style.visibility = 'hidden';
 })
 
-function active_menu() {
+function activate_menu() {
     let estado_menu = menu.style.visibility == 'visible' ? 'hidden': 'visible';
  
     menu.style.visibility = estado_menu   
@@ -49,3 +51,13 @@ function registred_message(bool) {
     
 }
 
+function activate_modal(bool) {
+    if(bool) {
+        var modal = document.querySelector('.modal-container')
+        modal.classList.add('active')
+    } else {
+        var modal = document.querySelector('.modal-container')
+        modal.classList.remove('active')
+    }
+    
+}

@@ -8,6 +8,7 @@
     <!-- styles -->
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/selection.css">
+    <link rel="stylesheet" href="css/modal.css">
     <!-- favicon -->
     <link rel="shortcut icon" href="/eye-solid.svg" type="image/x-icon">
     <!-- fonts -->
@@ -21,6 +22,7 @@
         require_once 'config.php';
         require_once TEMPLATE_HEADER;
         require_once LISTAR_MSG;
+        include_once 'template/modal.php';
         
     ?> 
     <!--tabela de seleção de usuários-->

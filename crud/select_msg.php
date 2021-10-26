@@ -21,7 +21,7 @@ function listMessages($dados)
             <td>
                                    
                 <img src="icons\005-show.png" alt="mostrar"> |
-                <img src="icons\001-editing.png" alt="editar"> |
+                <a href="#"><img src="icons\001-editing.png" alt="editar" onclick="activate_modal(true)"></a> |
                 <a href="./selecao.php?id=<?php echo $dados[$i]['id'];?>"><img src="icons\006-delete.png" alt="deletar"></a> 
             </td>
             <?php
