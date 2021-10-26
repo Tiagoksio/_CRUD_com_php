@@ -21,9 +21,18 @@
     <?php 
         require_once 'config.php';
         require_once TEMPLATE_HEADER;
-        require_once LISTAR_MSG;
-        include_once 'template/modal.php';
-        
+        require_once DB_API;
+        $mensagens = new Messages(DB_NAME, DB_HOST, DB_USER, DB_PASSWORD); // Corrigir a classe
+        function input_validation($data) {
+            $data = trim($data);
+            $data = stripslashes($data);
+            $data = htmlspecialchars($data);
+            return $data;    
+        }
+
+        require_once 'crud/update_msg.php';
+        require_once EXCLUIR_MSG;
+        require_once LISTAR_MSG;         
     ?> 
     <!--tabela de seleção de usuários-->
     <div class="container">
@@ -41,15 +50,13 @@
             </thead>
             <tbody>
             <?php
-                listMessages($dados);                      
+                listMessages($res_msgs);                      
             ?>
     </div>
     
     <!--área do rodapé (footer)-->
     <?php
-    require_once EXCLUIR_MSG;
+    
     require_once TEMPLATE_FOOTER;
+    include_once 'template/modal.php';
     ?>
-
-
-

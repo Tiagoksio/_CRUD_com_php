@@ -1,28 +1,25 @@
 <?php
-require_once 'config.php';
-require_once DB_API;
 
-$mensagens = new Messages(DB_NAME, DB_HOST, DB_USER, DB_PASSWORD);
-$id_msg;
-$dados = $mensagens->getMessages();
+$res_msgs = $mensagens->fetchAllMessages();
 
 // Passar os dados para o escopo local da função ao executar
-function listMessages($dados)
+function listMessages($res_msgs)
 {
-    if (count($dados) > 0) {
-        for ($i=0; $i < count($dados); $i++) { 
+    if (count($res_msgs) > 0) {
+        for ($i=0; $i < count($res_msgs); $i++) { 
             echo "<tr>";
-            foreach ($dados[$i] as $key => $value) {
+            foreach ($res_msgs[$i] as $key => $value) {
                 if ($key != "id" and $key != "cidade" and $key != "msg") {
                     echo "<td>" . $value . "</td>";
                 }
             }
+            
             ?>
             <td>
-                                   
+            <!--./selecao.php?id_up=  onclick="activate_modal(true)" -->        
                 <img src="icons\005-show.png" alt="mostrar"> |
-                <a href="#"><img src="icons\001-editing.png" alt="editar" onclick="activate_modal(true)"></a> |
-                <a href="./selecao.php?id=<?php echo $dados[$i]['id'];?>"><img src="icons\006-delete.png" alt="deletar"></a> 
+                <a href="./selecao.php?id_up=<?php echo $res_msgs[$i]['id'];?>"><img src="icons\001-editing.png" alt="editar"></a> |
+                <a href="./selecao.php?id_del=<?php echo $res_msgs[$i]['id'];?>"><img src="icons\006-delete.png" alt="deletar"></a> 
             </td>
             <?php
             echo "</tr>";

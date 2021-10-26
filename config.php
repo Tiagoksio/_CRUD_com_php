@@ -34,5 +34,4 @@ define("TEMPLATE_HEADER", ABSPATH.'template/header.php');
 
 define("TEMPLATE_FOOTER", ABSPATH.'template/footer.php');
 
-
 ?>

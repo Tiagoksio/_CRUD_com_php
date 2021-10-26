@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if (!$campos_vazios) {
         if (
-            $mensagem->setMessage(
+            $mensagem->insertMessage(
                 $dados_form[0],
                 $dados_form[1],
                 $dados_form[2],

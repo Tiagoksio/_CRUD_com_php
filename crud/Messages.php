@@ -14,7 +14,7 @@ class Messages {
     }
 
     //SELECT
-    public function getMessages () {
+    public function fetchAllMessages () {
         $res = array(); //Retornar o Array vazio caso não encontre mensagens;
         $cmd = $this -> db_conn -> query("SELECT * FROM tb_mensagens ORDER BY id DESC");
         $res = $cmd->fetchAll(PDO::FETCH_ASSOC);
@@ -22,7 +22,7 @@ class Messages {
     }
 
     //INSERT
-    public function setMessage ($nome, $sobrenome, $email, $telefone, $cidade, $assunto, $msg ) {
+    public function insertMessage ($nome, $sobrenome, $email, $telefone, $cidade, $assunto, $msg ) {
 
         $cmd = $this -> db_conn -> prepare("INSERT INTO tb_mensagens (nome, sobrenome, email, telefone, cidade, assunto, msg) VALUES (:nome, :sobrenome, :email, :telefone, :cidade, :assunto, :msg)");
 
@@ -46,7 +46,19 @@ class Messages {
     }
 
     //UPDATE
-    public function updateMessage($id_msg, $nome, $sobrenome, $email, $telefone, $cidade, $assunto, $msg) {
+    public function fetchMessage($id_msg) {   
+        $res = array(); //Retornar o Array vazio caso não encontre mensagens;
+        $cmd = $this -> db_conn -> prepare("SELECT * FROM tb_mensagens WHERE id = :id");
+        $cmd -> bindValue(':id', $id_msg);
+        $cmd -> execute();
+
+        $res = $cmd->fetch(PDO::FETCH_ASSOC);
+        return $res;
+    
+
+    }
+
+    public function updateMessage($nome, $sobrenome, $email, $telefone, $cidade, $assunto, $msg, $id_msg) {
         $cmd = $this -> db_conn -> prepare("UPDATE tb_mensagens SET nome = :n, sobrenome = :sn, email = :e, telefone = :t, cidade = :c, assunto = :a, msg = :msg WHERE id = :id");
 
         $cmd -> bindValue(':n', $nome);
