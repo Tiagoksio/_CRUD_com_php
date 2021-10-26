@@ -81,6 +81,7 @@ header {
 
 .sidebar_btn{
     display: none;
+    visibility: hidden;
 }
 
 
@@ -193,6 +194,7 @@ footer {
         margin-left: 15px;
         background-color: rgba(255, 255, 255, 0.0);
         cursor: pointer;
+        visibility: visible;
     }
     
     .sidebar_btn label{

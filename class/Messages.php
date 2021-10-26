@@ -1,7 +1,6 @@
 <?php
 class Messages {
     private $pdo;
-    public $res;
 
     public function __construct($dbname, $host, $user, $password) {
         try {
@@ -39,9 +38,12 @@ class Messages {
         return true;
     }
 
+    //DELETE
     public function deleteMessage($id_msg) {
         $cmd = $this -> pdo -> prepare("DELETE FROM tb_mensagens WHERE id = :id");
         $cmd -> bindValue(":id", $id_msg);
         $cmd -> execute();
     }
+
+    //UPDATE
 }
