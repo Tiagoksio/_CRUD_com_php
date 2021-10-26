@@ -82,7 +82,7 @@
         
     <?php
 
-    require_once VALIDA_FORM;
+    require_once CADASTRAR_MSG;
     # área do rodapé (footer) 
     require_once TEMPLATE_FOOTER;
     ?>

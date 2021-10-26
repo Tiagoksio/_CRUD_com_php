@@ -18,10 +18,8 @@
     <?php 
         require_once 'config.php';
         require_once TEMPLATE_HEADER;
-        require_once DB_API;
-        $mensagens = new Messages(DB_NAME, DB_HOST, DB_USER, DB_PASSWORD);
-        $id_msg;
-        $dados = $mensagens->getMessages();
+        require_once LISTAR_MSG;
+        
     ?> 
     <!--tabela de seleção de usuários-->
     <div class="container">
@@ -39,48 +37,13 @@
             </thead>
             <tbody>
             <?php
-            if (count($dados) > 0) {
-                for ($i=0; $i < count($dados); $i++) { 
-                    echo "<tr>";
-                    foreach ($dados[$i] as $key => $value) {
-                        if ($key != "id" and $key != "cidade" and $key != "msg") {
-                            echo "<td>" . $value . "</td>";
-                        }
-                    }
-                    ?>
-                    <td>
-                                           
-                        <img src="icons\005-show.png" alt="mostrar"> |
-                        <img src="icons\001-editing.png" alt="editar"> |
-                        <a href="./selecao.php?id=<?php echo $dados[$i]['id'];?>"><img src="icons\006-delete.png" alt="deletar"></a> 
-                    </td>
-                    <?php
-                    echo "</tr>";
-                }
-                echo "</tbody></table>";
-            } else {
-                echo "</tbody></table><span>Nenhuma Mensagem Foi cadastrada</span>";
-            }          
+                listMessages($dados);                      
             ?>
     </div>
-
-    <?php 
-    function input_validation($data) {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;    
-    }
-
-    if (isset($_GET['id'])) {
-        $id_msg = input_validation($_GET['id']);
-        $mensagens->deleteMessage($id_msg);
-    }
-    
-    ?>
     
     <!--área do rodapé (footer)-->
     <?php
+    require_once EXCLUIR_MSG;
     require_once TEMPLATE_FOOTER;
     ?>
 
