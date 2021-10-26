@@ -30,7 +30,7 @@
             return $data;    
         }
 
-        require_once 'crud/update_msg.php';
+        require_once UPDATE_MSG;
         require_once EXCLUIR_MSG;
         require_once LISTAR_MSG;         
     ?> 
@@ -58,5 +58,5 @@
     <?php
     
     require_once TEMPLATE_FOOTER;
-    include_once 'template/modal.php';
+    include_once TEMPLATE_MODAL;
     ?>

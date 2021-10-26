@@ -27,11 +27,15 @@ define('LISTAR_MSG', ABSPATH. 'crud/select_msg.php');
 
 define('EXCLUIR_MSG', ABSPATH. 'crud/delete_msg.php');
 
+define('UPDATE_MSG', ABSPATH. 'crud/update_msg.php');
+
 
 
 //Templates
 define("TEMPLATE_HEADER", ABSPATH.'template/header.php');
 
 define("TEMPLATE_FOOTER", ABSPATH.'template/footer.php');
+
+define('TEMPLATE_MODAL', ABSPATH. 'template/modal.php');
 
 ?>
