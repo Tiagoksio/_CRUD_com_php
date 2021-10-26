@@ -12,8 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">  
-    <!-- Jquery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>  
+   
     <!-- scripts -->
     <script src="./scripts/script.js"></script>
 </head>
@@ -21,10 +20,6 @@
     <?php
         require_once './config.php';
         require_once TEMPLATE_HEADER;
-        require_once DB_API;
-
-        $mensagem = new Messages(DB_NAME, DB_HOST, DB_USER, DB_PASSWORD);
-        
     ?>
     <!-- estrutura do formulário -->
     
@@ -87,61 +82,8 @@
         
     <?php
 
-    // Validação do Formulário
-    function input_validation($data) {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;    
-    }
-
-    if ($_SERVER["REQUEST_METHOD"] === "POST") {
-        $dados_form = [
-            $_POST["nome"], 
-            $_POST["sobrenome"], 
-            $_POST["email"], 
-            $_POST["tel"], 
-            $_POST["cidade"],
-            $_POST["assunto"], 
-            $_POST["msg"]
-        ];
-
-
-        $campos_vazios = false;
-        
-        
-        foreach ($dados_form as $k => $v) {
-            if (empty($v)) {
-                echo "<script>empty_field(". $k .")</script>";
-                $campos_vazios = true;
-            } else {
-                $v = input_validation($v);
-            }
-        }
-
-        if (!$campos_vazios) {
-            if (
-                $mensagem->setMessage(
-                    $dados_form[0],
-                    $dados_form[1],
-                    $dados_form[2],
-                    $dados_form[3],
-                    $dados_form[4],
-                    $dados_form[5],
-                    $dados_form[6]
-                )
-            ) {
-                echo "<script>registred_message(true)</script>";
-            } else {
-                echo "<script>registred_message(false)</script>";
-            }
-        }
-    }
-    
+    require_once VALIDA_FORM;
     # área do rodapé (footer) 
     require_once TEMPLATE_FOOTER;
     ?>
     
-</body>
-</html>
-

@@ -26,4 +26,6 @@ define('DB_API', ABSPATH . 'class/Messages.php');
 define("TEMPLATE_HEADER", ABSPATH.'parts/header.php');
 
 define("TEMPLATE_FOOTER", ABSPATH.'parts/footer.php');
+
+define('VALIDA_FORM', ABSPATH.'parts/footer.php');
 ?>
