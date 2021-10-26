@@ -18,14 +18,21 @@ define("DB_USER", 'crud_php');
 
 define("DB_PASSWORD", "123456");
 
-define('DB_API', ABSPATH . 'class/Messages.php');
+define('DB_API', ABSPATH . 'crud/Messages.php');
+
+// CRUD MESSAGE
+define('CADASTRAR_MSG', ABSPATH. 'crud/insert_msg.php');
+
+define('LISTAR_MSG', ABSPATH. 'crud/select_msg.php');
+
+define('EXCLUIR_MSG', ABSPATH. 'crud/delete_msg.php');
 
 
 
 //Templates
-define("TEMPLATE_HEADER", ABSPATH.'parts/header.php');
+define("TEMPLATE_HEADER", ABSPATH.'template/header.php');
 
-define("TEMPLATE_FOOTER", ABSPATH.'parts/footer.php');
+define("TEMPLATE_FOOTER", ABSPATH.'template/footer.php');
 
-define('VALIDA_FORM', ABSPATH.'parts/footer.php');
+
 ?>
